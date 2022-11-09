@@ -19,6 +19,11 @@
             "matches":["https://pn120.infusionsoft.com/Contact/manageContact.jsp*"],
             "js":["jquery-3.6.0.min.js", "contact-links.js"],
             "run_at": "document_end"
+        },
+        {
+            "matches":["https://pn120.infusionsoft.com/Job/manageJob.jsp*"],
+            "js":["jquery-3.6.0.min.js", "order-links.js"],
+            "run_at": "document_end"
         }
     ]
   }

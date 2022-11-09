@@ -1,11 +1,8 @@
 {
     "name": "CI Infusionsoft Add-ons",
     "description": "Enable additional functionality in Infusionsoft",
-    "version": "2.0",
+    "version": "0.0.02",
     "manifest_version": 3,
-    "background": {
-      "service_worker": "cardreader.js"
-    },
 
     "permissions": [
         "activeTab"
@@ -20,7 +17,7 @@
         },
         {
             "matches":["https://pn120.infusionsoft.com/Contact/manageContact.jsp*"],
-            "js":["jquery-3.6.0.min.js", "customer-service-form.js"],
+            "js":["jquery-3.6.0.min.js", "contact-links.js"],
             "run_at": "document_end"
         }
     ]

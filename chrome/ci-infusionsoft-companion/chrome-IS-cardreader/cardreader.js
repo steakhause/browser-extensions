@@ -36,7 +36,7 @@ jQuery('body').on('click', '#activate', function () {
 var timer = null;
 $('body').on('keydown', '#card-reader-input', function () {
     clearTimeout(timer);
-    timer = setTimeout(doneTyping, 700)
+    timer = setTimeout(doneTyping, 700);
 });
 
 function doneTyping() {
@@ -48,29 +48,42 @@ function doneTyping() {
 
 
 //document.body.style.border = "4px solid green";
+//Create the button
+
 jQuery('#content').css('border', '4px solid green');
-jQuery('#creditCardForm').prepend('<textarea autofocus id="card-reader-input" rows="1" cols="1" style="border:none; resize:none; overflow:hidden; color:white;"></textarea>');
+jQuery('#creditCardForm').parent().prepend('<textarea id="card-reader-input" rows="1" cols="1" style="border:none; resize:none; overflow:hidden; color:white;"></textarea>');
+//jQuery('#creditCardForm').parent().prepend('<input class="inf-button btn primary" id="activate" type="button" value="Activate Reader" style="display:block; position:absolute">');
 jQuery('#card-reader-input').focus();
+//jQuery('#card-reader-input').focus();
 jQuery('#card-reader-input').focusout(function () {
     jQuery('#content').css('border', '2px solid yellow');
-    jQuery('#creditCardForm').prepend('<input class="inf-button btn primary" id="activate" type="button" value="Activate Reader" style="display:block; position:absolute">');
-    var fullCardInfo = jQuery(this).val();
-    let cardNumber = fullCardInfo.substring(2, fullCardInfo.indexOf('^'));
-    jQuery('#cardNumber').val(cardNumber);
-    jQuery('#cardNumber').focus();
-    let expirationYear = "20" + fullCardInfo.substring(fullCardInfo.indexOf("=") + 1, fullCardInfo.indexOf("=") + 3);
-    jQuery('#expirationYear').val(expirationYear);
-    let expirationMonth = fullCardInfo.substring(fullCardInfo.indexOf("=") + 3, fullCardInfo.indexOf("=") + 5);
-    jQuery('#expirationMonth').val(expirationMonth);
-    jQuery('#expirationMonth').focus();
-    let cardType = GetCardType(cardNumber);
-    jQuery('#cardType').focus();
-    jQuery('#cardType').val(cardType);
-    jQuery('#useWithInfusionsoftPayments').prop('checked', 'true');
-    jQuery('#billCountry').val("United States");
-    let nameOnCard = fullCardInfo.split('^');
-    let fullName = nameOnCard[1].split('/');
-    jQuery('#nameOnCard').val(fullName[1].replace(/\s/g, '') + " " + fullName[0].replace(/\s/g, ''))
-    jQuery('#verificationCode').focus();
-
+    jQuery('#creditCardForm').parent().prepend('<input class="inf-button btn primary" id="activate" type="button" value="Activate Reader" style="display:block; position:absolute">');
+    if (jQuery('#card-reader-input').val() != '') {
+        var fullCardInfo = jQuery(this).val();
+        console.log(fullCardInfo);
+        let cardNumber = fullCardInfo.substring(2, fullCardInfo.indexOf('^'));
+        console.log(cardNumber);
+        jQuery('#cardNumber').focus();
+        jQuery('#cardNumber').val(cardNumber).change();
+        jQuery('#creditCardNumChange').val(true);
+        let expirationYear = "20" + fullCardInfo.substring(fullCardInfo.indexOf("=") + 1, fullCardInfo.indexOf("=") + 3);
+        jQuery('#expirationYear').focus();
+        jQuery('#expirationYear').val(expirationYear);
+        let expirationMonth = fullCardInfo.substring(fullCardInfo.indexOf("=") + 3, fullCardInfo.indexOf("=") + 5);
+        jQuery('#expirationMonth').focus();
+        jQuery('#expirationMonth').val(expirationMonth);
+        let cardType = GetCardType(cardNumber);
+        jQuery('#cardType').focus();
+        jQuery('#cardType').val(cardType);
+        jQuery('#useWithInfusionsoftPayments').prop('checked', 'true');
+        jQuery('#billCountry').val("United States");
+        let nameOnCard = fullCardInfo.split('^');
+        let fullName = nameOnCard[1].split('/');
+        fullName = fullName[1].replace(/\s/g, '') + " " + fullName[0].replace(/\s/g, '');
+        console.log(fullName);
+        jQuery('#nameOnCard').focus();
+        jQuery('#nameOnCard').val(fullName);
+        jQuery('#card-reader-input').val(null);
+        jQuery('#verificationCode').focus();
+    }
 });

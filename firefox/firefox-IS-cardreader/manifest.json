@@ -1,0 +1,20 @@
+{
+
+    "manifest_version": 2,
+    "name": "Infusionsoft Card Reader",
+    "version": "1.0",
+  
+    "description": "Enables some card reader functionality for Infusionsoft.",
+  
+    "icons": {
+      "48": "icons/border-48.png"
+    },
+  
+    "content_scripts": [
+      {
+        "matches": ["*://*.pn120.infusionsoft.com/app/creditCard/prepareEditCreditCard*"],
+        "js": ["jquery-3.6.0.min.js","cardreader.js"]
+      }
+    ]
+  
+  }

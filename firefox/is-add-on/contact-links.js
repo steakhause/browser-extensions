@@ -13,7 +13,7 @@ jQuery(document).ready(function () {
 
     jQuery('#FormId_select').change(function () {
         if (jQuery(this).val() == 'Customer Service Utilities') {
-            window.open('https://api.cleverinvestor.com/dealautomator/utility/?infusion_id=' + contactId, '_blank');
+            window.open('https://api.cleverinvestor.com/infusionsoft/form/customer-service-communication/?contactId=' + contactId + '&uid=' + userId, '_blank');
         }
     });
 });

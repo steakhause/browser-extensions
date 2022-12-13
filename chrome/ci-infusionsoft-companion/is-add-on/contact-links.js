@@ -12,8 +12,12 @@ jQuery(document).ready(function () {
     jQuery('#FormId_select').prepend('<option val="cscf">Customer Service Utilities</option>');
 
     jQuery('#FormId_select').change(function () {
+        var script = jQuery('#grid_div_GridFileBoxContact script').html();
+        var start = script.indexOf('id=') + 3;
+        var end = script.indexOf('&delete=');
+        var userId = script.substr(start, end - start);
         if (jQuery(this).val() == 'Customer Service Utilities') {
-            window.open('https://api.cleverinvestor.com/dealautomator/utility/?infusion_id=' + contactId, '_blank');
+            window.open('https://api.cleverinvestor.com/infusionsoft/form/customer-service-communication/?infusion_id=' + contactId + '&uid=' + userId, '_blank');
         }
     });
 });

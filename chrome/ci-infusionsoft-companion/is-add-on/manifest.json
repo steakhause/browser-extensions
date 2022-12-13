@@ -1,7 +1,7 @@
 {
     "name": "CI Infusionsoft Add-ons",
     "description": "Enable additional functionality in Infusionsoft",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "manifest_version": 3,
     "icons": {
       "16": "/icons/icon_16.png",
@@ -9,10 +9,6 @@
       "128": "/icons/icon_128.png",
       "192": "/icons/icon_192.png"
     },
-
-    "permissions": [
-        "activeTab"
-    ],
 
     "content_scripts": 
     [
@@ -30,6 +26,10 @@
             "matches":["https://pn120.infusionsoft.com/Job/manageJob.jsp*"],
             "js":["jquery-3.6.0.min.js", "order-links.js"],
             "run_at": "document_end"
+        },
+        {
+          "matches": ["*://test.learn.cleverinvestor.com/*"],
+          "js": ["jquery-3.6.0.min.js", "test-site-notify.js"]
         }
     ]
   }

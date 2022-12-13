@@ -2,9 +2,14 @@
 
     "manifest_version": 2,
     "name": "CI Infusionsoft Add-ons",
-    "version": "0.0.2",
+    "version": "0.0.3",
   
     "description": "Enable additional functionality in Infusionsoft.",
+    "browser_specific_settings": {
+      "gecko": {
+        "update_url": "https://api.cleverinvestor.com/browser-extensions/firefox/updates.json"
+      }
+    },
 
     "icons": {
       "16": "/icons/icon_16.png",
@@ -29,7 +34,7 @@
         },
         {
           "matches": ["*://test.learn.cleverinvestor.com/*"],
-          "js": ["jquery-3.6.0.min.js", "borderify.js"]
+          "js": ["jquery-3.6.0.min.js", "test.site.notify.js"]
         }
     ]
   

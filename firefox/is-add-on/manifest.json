@@ -7,7 +7,7 @@
     "description": "Enable additional functionality in Infusionsoft.",
     "browser_specific_settings": {
       "gecko": {
-        "update_url": "https://api.cleverinvestor.com/browser-extensions/firefox/updates.json"
+        "update_url": "https://api.cleverinvestor.com/browser-extensions/firefox/ci-add-on-updates.json"
       }
     },
 
@@ -34,7 +34,7 @@
         },
         {
           "matches": ["*://test.learn.cleverinvestor.com/*"],
-          "js": ["jquery-3.6.0.min.js", "test.site.notify.js"]
+          "js": ["jquery-3.6.0.min.js", "test-site-notify.js"]
         }
     ]
   

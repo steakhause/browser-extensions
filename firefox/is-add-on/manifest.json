@@ -2,7 +2,12 @@
 
     "manifest_version": 2,
     "name": "CI Infusionsoft Add-ons",
-    "version": "0.0.3",
+    "version": "0.0.4",
+    
+    "permissions": [
+      "webRequest",
+      "<all_urls>"
+    ],
   
     "description": "Enable additional functionality in Infusionsoft.",
     "browser_specific_settings": {

@@ -42,7 +42,6 @@ jQuery(document).ready(function () {
     
     jQuery('body').on('click', '#Contact0_CoachingEndDate_img', function(){
         currEndDate = jQuery('#Contact0_CoachingEndDate_date').val();
-        console.log("calImgClick = " + currEndDate);
     });
 
     jQuery('body').on('click change', '.cleverAjaxTrigger, #Contact0_CoachingEndDate_date', function (e) {
@@ -59,13 +58,11 @@ jQuery(document).ready(function () {
             case 'Contact0_CoachingEndDate_date':
                 newEndDate = jQuery('#Contact0_CoachingEndDate_date').val();
                 if(e.type == 'change' && jQuery(this).val().length == 10  && currEndDate != newEndDate) {
-                    console.log(newEndDate + "!=" + currEndDate);
                     goalName = 'EndDateUpdated';
                 }
                 break;
 
         }
-        console.log("goalName = " + goalName);
         if(goalName != ''){
             jQuery.post("https://api.cleverinvestor.com/infusionsoft/api_goal.php",
                 {
@@ -75,10 +72,17 @@ jQuery(document).ready(function () {
                     eventCode: goalName
                 },
                 function (data, status) {
-                    console.log("Data: " + data + "\nStatus: " + status);
-                    if(data[0].goalId == 371) {
-                        //jQuery('#ContactForm').submit();
-                        console.log("I would like to submit");
+                    data = JSON.parse(data);
+                    if(data[0].success) {
+                        if(data[0].goalId == 371) {
+                            jQuery('#ContactForm').submit();
+                        } else {
+                            goalName = '#' + goalName;
+                            jQuery('body').animate({'background-color':'#90bf64 !important'}, 100, function(){jQuery('body').animate({'background-color':'#ffffff !important'}, 'slow', 'linear')});
+                            var response = goalName == '#resumeUCProg' ? 'The program has been resumed.' : 'The program has been paused.';
+                            jQuery(goalName).closest('tr').after('<tr class="apiAnnouncement"><td>' + response + '</td></tr>');
+                            jQuery('.apiAnnouncement').slideUp(3000);
+                        }
                     }
                 }
             );

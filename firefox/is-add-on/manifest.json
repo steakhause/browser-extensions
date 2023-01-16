@@ -2,7 +2,7 @@
 
     "manifest_version": 2,
     "name": "CI Infusionsoft Add-ons",
-    "version": "0.0.4",
+    "version": "0.0.5",
     
     "permissions": [
       "webRequest",
@@ -30,7 +30,10 @@
             "js":["jquery-3.6.0.min.js", "cardreader.js"]
         },
         {
-            "matches":["https://pn120.infusionsoft.com/Contact/manageContact.jsp*"],
+            "matches":[
+              "https://pn120.infusionsoft.com/Contact/manageContact.jsp*",
+              "https://pn120.infusionsoft.com/Contact/oldManageContact_legacy.jsp*"
+            ],
             "js":["jquery-3.6.0.min.js", "contact-links.js"]
         },
         {

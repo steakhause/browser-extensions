@@ -1,8 +1,14 @@
 {
     "name": "CI Infusionsoft Add-ons",
     "description": "Enable additional functionality in Infusionsoft",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "manifest_version": 3,
+    
+    "host_permissions": [
+      "https://*.cleverinvestor.com/*"
+    ],
+
+
     "icons": {
       "16": "/icons/icon_16.png",
       "32": "/icons/icon_32.png",
@@ -18,7 +24,10 @@
             "run_at": "document_end"
         },
         {
-            "matches":["https://pn120.infusionsoft.com/Contact/manageContact.jsp*"],
+            "matches":[
+              "https://pn120.infusionsoft.com/Contact/manageContact.jsp*",
+              "https://pn120.infusionsoft.com/Contact/oldManageContact_legacy.jsp*"
+            ],
             "js":["jquery-3.6.0.min.js", "contact-links.js"],
             "run_at": "document_end"
         },

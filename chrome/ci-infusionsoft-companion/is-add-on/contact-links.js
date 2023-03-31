@@ -2,7 +2,7 @@ jQuery(document).ready(function () {
     const urlParams = new URLSearchParams(window.location.search);
     const param_x = urlParams.get('param_x');
     var contactId = urlParams.get('ID');
-    var fullName = jQuery('.page-header-user h2').html();
+    var fullName = jQuery('.page-header-user h2').html().replace("<div>", "").replace("</div>", "");
 
     var linkElement = '<li class="tab-blur" id="tab_main" nowrap="nowrap"><a class="tab-blur" id="tab_link_main" href="https://api.cleverinvestor.com/dealautomator/utility/?infusion_id=' + contactId + '" target="_blank">DA Utility</a></li>';
     linkElement += '<li class="tab-blur" id="tab_main" nowrap="nowrap"><a class="tab-blur" id="tab_link_main" href="https://api.cleverinvestor.com/infusionsoft/dup_finder.php?contactId=' + contactId + '" target="_blank">Dup Check</a></li>';

@@ -2,7 +2,7 @@
 
     "manifest_version": 2,
     "name": "CI Infusionsoft Add-ons",
-    "version": "0.0.5",
+    "version": "0.0.7",
     
     "permissions": [
       "webRequest",
@@ -12,7 +12,7 @@
     "description": "Enable additional functionality in Infusionsoft.",
     "browser_specific_settings": {
       "gecko": {
-        "update_url": "https://api.cleverinvestor.com/browser-extensions/firefox/ci-add-on-updates.json"
+        "update_url": "https://nexus.cleverinvestor.com/browser-extensions/firefox/ci-add-on-updates.json"
       }
     },
 
